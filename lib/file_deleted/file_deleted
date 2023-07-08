@@ -1,0 +1,94 @@
+  // FOR ALL ESPERCE
+
+//    Widget title_esperce(itmeText){
+
+//     return GestureDetector(
+//       // onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuItem())),
+//       child: Container(
+//       height: 50,
+//       width: 80,
+//       alignment: Alignment.center,
+//       margin: const EdgeInsets.only(right: 10,top: 20),
+//       decoration: BoxDecoration(
+//         color: const Color.fromARGB(255, 235, 188, 163),
+//         borderRadius: BorderRadius.circular(5),
+       
+//       ),
+//       child: Text(itmeText,style: TextStyle(color: const Color.fromARGB(255, 11, 59, 36).withOpacity(0.50),
+//       fontFamily: 'Roboto-Black.ttf',fontSize: 18),),
+//     )
+//     );
+
+
+//    }
+
+
+
+
+
+
+
+   // SEARCH PLACE
+
+//    Widget title_itmeContainer(itmeText){
+
+//     return GestureDetector(
+//       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuItem())),
+//       child: Container(
+//       height: 50,
+//       width: 90,
+//       padding: EdgeInsets.all( 1),
+//       alignment: Alignment.center,
+//       margin: const EdgeInsets.only(right: 8,top: 20),
+//       decoration: BoxDecoration(
+//         color: _changeItemColor? const Color.fromARGB(255, 184, 105, 62):const Color.fromARGB(255, 255, 255, 255),
+//         borderRadius: BorderRadius.circular(5),
+//         border: Border.all(color: const Color.fromARGB(255, 184, 105, 62).withOpacity(0.3))
+//       ),
+//       child: Text(itmeText,style: TextStyle(color: const Color.fromARGB(255, 11, 59, 36).withOpacity(0.50),
+//       fontFamily: 'Roboto-Black.ttf',fontSize: 13),),
+//     )
+//     );
+
+//    }
+
+
+
+// Widget contruteur_item(){
+  
+//   return Column(
+//     children: [
+//       ...items.map((e) => Column(
+//         children: [
+//            ListView.builder(
+//             scrollDirection: Axis.horizontal,
+//                   itemCount: _foundPlant.length,
+                
+//                   itemBuilder: (context,index){
+//                   final e = items[index];
+//                   return Hero(
+//                     tag: e.images,
+//                     child: GestureDetector(
+//                       child: ListTile(
+//                         key: ValueKey(e.id),
+//                         title: item_packege(e.images, e.title, e.subtitle),
+//                       ),
+//                     ),
+                    
+      
+//                   );
+      
+//                  }),
+//         ],
+//       ))
+//     ],
+//   );
+
+//  }
+
+
+
+
+
+
+// Color.fromARGB(255, 231, 175, 138),
