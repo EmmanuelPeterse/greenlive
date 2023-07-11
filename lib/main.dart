@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:greenlive/connection/connectionitem/signup.dart';
+import 'package:greenlive/google_sign/googleSign.dart';
 import 'package:greenlive/repository/welcomepage/welcome.dart';
 
 void main() {
@@ -43,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
    
     return const Scaffold(
 
-      body: WelcomePage()
+      body: SignUp()
+
+      // SignGoogle()
     
     );
   }

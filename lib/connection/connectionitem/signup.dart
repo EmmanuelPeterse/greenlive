@@ -419,7 +419,7 @@ class _SignUpState extends State<SignUp> {
     return Column(
       children: [
         CircleAvatar(
-          child: Image.network(_controller.googleAccount.value?.displayName?? ''),
+          child: Image.network(_controller.googleAccount.value?.photoUrl?? ''),
         ),
         Text(_controller.googleAccount.value?.displayName?? '')
       ],

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:badges/badges.dart'as badges;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:greenlive/connection/controller/login_controller.dart';
 import 'package:greenlive/connection/pageconnection.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,16 +21,20 @@ class HearderNavBar extends ConsumerWidget{
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
+    final _controller = Get.put(LoginController());
+
     
 
     return  Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          UserAccountsDrawerHeader(accountName: const Text('one'), accountEmail: const Text('email'),
+          UserAccountsDrawerHeader(
+           accountName:  Text(_controller.googleAccount.value?.displayName?? ''),
+           accountEmail: Text(_controller.googleAccount.value?.email?? ''),
           currentAccountPicture: CircleAvatar(
             child: ClipOval(
-              child: Image.asset('assets/images/item/randoner_5.jpg',fit: BoxFit.cover,width:90, height: 90 ,)),    
+              child: Image.network(_controller.googleAccount.value?.photoUrl?? '',fit: BoxFit.cover,width:90, height: 90 ,)),    
           ),
           decoration: const BoxDecoration(
             color: Colors.greenAccent,
