@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
+
 class LearnItems extends StatelessWidget {
   
-  const LearnItems({super.key, required this.id,required this.title,
+   LearnItems({super.key, required this.id,required this.title,
   required this.subtitle,required this.allInfo,required this.image,
    required this.famille,required this.size,required this.hauteur,
     required this.type, required String culutre});
@@ -21,12 +22,15 @@ class LearnItems extends StatelessWidget {
    final String type;
    
 
-     final bool _like = true;
+  
+     bool isSave = false;
     
 
   @override
   Widget build(BuildContext context) {
    
+   
+
     return Scaffold(
        backgroundColor: const Color.fromARGB(255, 255, 253, 253),
       body: SafeArea(
@@ -275,9 +279,9 @@ class LearnItems extends StatelessWidget {
           children: [
             const Text("Description",style: TextStyle(color: Colors.black,fontSize: 20),),
             IconButton(onPressed: (){
-            
+                  
 
-                   }, icon:   FaIcon( _like? FontAwesomeIcons.heart: FontAwesomeIcons.heart,color:  const Color.fromARGB(255, 198, 43, 43) ,)),
+                   }, icon:   FaIcon( isSave? FontAwesomeIcons.heart : FontAwesomeIcons.heart,color:  const Color.fromARGB(255, 198, 43, 43) ,)),
             // 
           ],
          ),

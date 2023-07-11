@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:greenlive/connection/connectionitem/signing.dart';
+import 'package:greenlive/connection/controller/login_controller.dart';
 import 'package:greenlive/repository/dashboard/dasboardview.dart';
 import 'package:validation_textformfield/validation_textformfield.dart';
 
@@ -12,6 +16,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+
+  final _controller = Get.put(LoginController());
 
   // Gryser le champs le button de validation du formaulaire
 
@@ -355,7 +361,20 @@ class _SignUpState extends State<SignUp> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          IconButton(onPressed: (){}, icon: const FaIcon(FontAwesomeIcons.facebook,color: Color.fromARGB(255, 6, 94, 188),),),
+                        
+
+                        Obx(() {
+
+                          if(_controller.googleAccount.value == null){
+                            return bottondevalidation();
+                          }
+                          else {
+                              return  buildProfileview();
+                          }
+                        }),
+
+
+
                           const SizedBox(width: 10,),
                           IconButton(onPressed: (){}, icon: const FaIcon(FontAwesomeIcons.googlePlus,color: Color.fromARGB(255, 255, 21, 21),),),
                           const SizedBox(width: 10,),
@@ -381,8 +400,31 @@ class _SignUpState extends State<SignUp> {
                     ],
                   )
                 );
+
+
+
+
+
        
   } 
+
+
+  bottondevalidation(){
+         return   IconButton(onPressed: (){
+                             _controller.login();
+                          }, icon: const FaIcon(FontAwesomeIcons.facebook,color: Color.fromARGB(255, 6, 94, 188),),);
+  }
+
+  buildProfileview(){
+    return Column(
+      children: [
+        CircleAvatar(
+          child: Image.network(_controller.googleAccount.value?.displayName?? ''),
+        ),
+        Text(_controller.googleAccount.value?.displayName?? '')
+      ],
+    );
+  }
 
   
 

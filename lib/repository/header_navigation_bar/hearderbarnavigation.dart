@@ -5,13 +5,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:badges/badges.dart'as badges;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:greenlive/connection/pageconnection.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HearderNavBar extends ConsumerWidget{
-  const HearderNavBar({super.key});
+   HearderNavBar({super.key});
+
+  final Uri _uri = Uri.parse('https://blackligth965.wixsite.com/emmanuelpeters');
+  final Uri _uri1 = Uri.parse('mailto:blacklight965@gmail.com');
+  
+
 
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
+    
 
     return  Drawer(
       child: ListView(
@@ -29,32 +37,41 @@ class HearderNavBar extends ConsumerWidget{
 
           ListTile(
               title: const Text('Connexion'),
-              leading:const Icon(Icons.signpost_rounded,color: Color.fromARGB(255, 67, 207, 223),),
-              onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> PageConnexion()));},
+              leading:IconButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> PageConnexion()));
+              }, icon: Icon(Icons.signpost_rounded,color: Color.fromARGB(255, 67, 207, 223),),)
             ),
+
+         
 
              ListTile(
               title: const Text('Favorie'),
               trailing:const badges.Badge(
                 badgeContent: Text("8",style: TextStyle(color: Colors.black),)) ,
-              leading:const FaIcon(FontAwesomeIcons.star,color: Color.fromARGB(255, 67, 207, 223),),
-              onTap: (){},
+              leading: IconButton(onPressed: (){}, icon: FaIcon(FontAwesomeIcons.star,color: Color.fromARGB(255, 67, 207, 223),),)
+              
             ),
-
-
-
-
+           
+      
             ListTile(
               title: const Text('Call back'),
-              leading:const Icon(Icons.email,color: Color.fromARGB(255, 67, 207, 223),),
+              leading: IconButton(onPressed: urlLuancher1, icon: Icon(Icons.email,color: Color.fromARGB(255, 67, 207, 223),),),
+
               onTap: (){},
             ),
+          
+            ListTile(
+              title:  Text('About us'),
+              leading: IconButton(onPressed: urlLuancher, icon: Icon(Icons.account_circle,color: Color.fromARGB(255, 67, 207, 223),),),
+              
+            ),
+          
            const Divider(height: 3,color: Colors.grey,),
 
             ListTile(
               title: const Text('Exit'),
-              leading:const Icon(Icons.exit_to_app,color: Color.fromARGB(255, 67, 207, 223),),
-              onTap: (){},
+              leading: IconButton(onPressed: (){}, icon: Icon(Icons.exit_to_app,color: Color.fromARGB(255, 255, 41, 41),),)
+             
             ),
            
         ],
@@ -62,4 +79,19 @@ class HearderNavBar extends ConsumerWidget{
     );
    
   }
+
+  Future<void> urlLuancher()async{
+    if(!await launchUrl(_uri)){
+      throw Exception('Url invalide $_uri');
+    }
+  }
+
+
+   Future<void> urlLuancher1()async{
+    if(!await launchUrl(_uri1)){
+      throw Exception('Url invalide $_uri1');
+    }
+  }
+
+
 }

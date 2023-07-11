@@ -23,7 +23,7 @@ class _DashboardItemState extends State<DashboardItem> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const HearderNavBar(),
+      drawer:  HearderNavBar(),
       appBar: AppBar(
         // backgroundColor: Colors.greenAccent,
         bottomOpacity: 0.1,

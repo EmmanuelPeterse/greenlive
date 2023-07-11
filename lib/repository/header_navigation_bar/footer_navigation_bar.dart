@@ -27,9 +27,9 @@ class _FooterNavatorBarState extends State<FooterNavatorBar> {
       selectedIndex: _selectIndex,
       iconSize: 30,
       items: [
-        FlashyTabBarItem(icon: FaIcon(FontAwesomeIcons.home), title: Text('Home')),
-        FlashyTabBarItem(icon:  FaIcon(FontAwesomeIcons.home), title: Text('Boock')),
-        FlashyTabBarItem(icon:  FaIcon(FontAwesomeIcons.home), title: Text('Persone')),
+        FlashyTabBarItem(icon: const FaIcon(FontAwesomeIcons.home), title: const Text('Home')),
+        FlashyTabBarItem(icon:  const FaIcon(FontAwesomeIcons.book), title: const Text('Boock')),
+        FlashyTabBarItem(icon:  const FaIcon(FontAwesomeIcons.star), title: const Text('Persone')),
         
         
       ], onItemSelected: (index) {
